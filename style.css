@@ -250,8 +250,17 @@ section h2 {
     margin-bottom: 1.5rem;
     color: #f8b400;
 }
-
-#loadGameBtn {
+#blurOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(30px);
+    z-index: 1;
+}
+#startGameBtn {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -263,9 +272,11 @@ section h2 {
     color: white;
     border: none;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+
 }
 
-#loadGameBtn:hover {
+#startGameBtn:hover {
     background-color: #0056b3;
 }
 

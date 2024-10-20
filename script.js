@@ -39,9 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Prevent automatic fullscreen on iframe load
-    iframe.onload = () => {
-        iframe.contentWindow.focus(); // Only focus the iframe after loading
-    };
+
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -91,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 iframe.onload = () => {
                     iframe.contentWindow.focus(); // Focus only, no fullscreen
                 };
-                gameObserver.unobserve(iframe);
+                gameObserver.observe(iframe);
             }
         });
     }, {

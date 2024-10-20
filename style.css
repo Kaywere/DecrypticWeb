@@ -13,7 +13,6 @@ body {
     scrollbar-width: thin; 
     scrollbar-color: rgba(255, 255, 255, 0.1) transparent; 
     overflow-y: scroll;
-    overflow: hidden
 }
 
 @keyframes pop-in {
@@ -64,7 +63,7 @@ body {
     align-items: center;
     z-index: 9999;
     opacity: 1;
-    animation: circular-fade-out 3s ease forwards;
+    animation: circular-fade-out 2.5s ease forwards;
 
 }
 
@@ -77,7 +76,6 @@ body {
     font-family: 'Verdana', sans-serif;
     font-size: 5rem;
     color: #f8b400;
-    display: inline-block;
     animation: pop-in 2.9s ease-out; 
 
     

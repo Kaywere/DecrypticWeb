@@ -81,21 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Lazy load the game iframe and prevent automatic fullscreen
-    const gameObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                iframe.src = 'Web/index.html'; // Load the game
-                iframe.onload = () => {
-                    iframe.contentWindow.focus(); // Focus only, no fullscreen
-                };
-                gameObserver.unobserve(iframe);
-            }
-        });
-    }, {
-        threshold: 0.75
+    document.getElementById('loadGameBtn').addEventListener('click', function() {
+        document.getElementById('gameframe').src = 'web/index.html';
+        this.style.display = 'none';
     });
-
-    gameObserver.observe(iframe);
 });
 
 const style = document.createElement('style');

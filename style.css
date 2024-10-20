@@ -251,6 +251,32 @@ section h2 {
     color: #f8b400;
 }
 
+#loadGameBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#loadGameBtn:hover {
+    background-color: #0056b3;
+}
+
+#gameContainer {
+    position: relative;
+}
+
+#gameFrame {
+    z-index: 0;
+}
+
 .game-demo {
     display: flex;
     justify-content: center;

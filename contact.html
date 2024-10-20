@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Decryptic</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS -->
+    <style>
+        /* Basic Contact Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            padding: 2rem;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #f8b400;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form label {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form input, .contact-form textarea {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: #f8b400;
+            color: #121212;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #e09b00;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+        }
+
+        .contact-info h3 {
+            color: #f8b400;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            margin-top: 2rem;
+        }
+
+        /* Back to Home Button */
+        .back-to-home {
+            display: inline-block;
+            margin-bottom: 2rem;
+            background-color: #f8b400;
+            padding: 0.75rem 1.5rem;
+            color: #121212;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #e09b00;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-to-home">← Back to Home</a>
+
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+
+        <!-- Contact Form -->
+        <form class="contact-form" action="#" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
+
+            <input type="submit" value="Send Message">
+        </form>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h3>Our Office</h3>
+            <p><strong>Address:</strong> 123 Cybersecurity Ave, Secure City, SC 98765</p>
+            <p><strong>Email:</strong> support@decryptic.com</p>
+            <p><strong>Phone:</strong> +1 (800) 123-4567</p>
+        </div>
+
+        <!-- Optional: Map -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0859854230295!2d144.9537352157097!3d-37.81720927975161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218cee40!2sVictoria%2C%20Australia!5e0!3m2!1sen!2sau!4v1631813712465!5m2!1sen!2sau"
+            allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+</body>
+</html>

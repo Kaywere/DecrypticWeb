@@ -1,3 +1,4 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -8,13 +9,15 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #e0e0e0;
-    background-color: #121212; 
-    padding-top: 4rem; 
-    scrollbar-width: thin; 
-    scrollbar-color: rgba(255, 255, 255, 0.1) transparent; 
+    background-color: #121212;
+    padding-top: 4rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
+/* Keyframe Animations */
 @keyframes pop-in {
     0% {
         transform: scale(0.8);
@@ -24,39 +27,31 @@ body {
         transform: scale(1);
         opacity: 1;
         backdrop-filter: blur(8px);
-
     }
     100% {
         transform: scale(0);
         opacity: 0;
-        overflow: auto
-
     }
-
 }
-
-
 
 @keyframes circular-fade-out {
     0% {
         clip-path: circle(100%);
-        transform: scale(1); 
+        transform: scale(1);
     }
     70% {
         clip-path: circle(100%);
-        transform: scale(1); 
+        transform: scale(1);
         filter: blur(1px);
-
     }
     100% {
         clip-path: circle(0%);
         opacity: 1;
         filter: blur(6px);
-
     }
 }
 
-
+/* Splash Screen */
 .splash-screen {
     position: fixed;
     top: 0;
@@ -70,80 +65,60 @@ body {
     z-index: 9999;
     opacity: 1;
     animation: circular-fade-out 2.5s ease forwards;
-
 }
-
-.splash-content {
-    text-align: center;
-}
-
 
 .splash-logo {
     font-family: 'Verdana', sans-serif;
     font-size: 5rem;
     color: #f8b400;
-    animation: pop-in 2.9s ease-out; 
-
-    
-    text-shadow:
-        0 0 3px #ff9900,   
-        0 0 8px #ff9900,   
-        0 0 12px #ff9900;  
-
-
+    animation: pop-in 2.9s ease-out;
+    text-shadow: 0 0 3px #ff9900, 0 0 8px #ff9900, 0 0 12px #ff9900;
 }
 
-
-
+/* Custom Scrollbar */
 body::-webkit-scrollbar {
     width: 5px;
 }
-
 body::-webkit-scrollbar-track {
     background: transparent;
 }
-
 body::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
 }
 
-
+/* Navbar */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.71);
+    background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 1rem;
     display: flex;
     justify-content: center;
     z-index: 1000;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
 }
-
 .navbar ul {
-    list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
+    list-style: none; /* Hide bullet points */
 }
-
 .navbar a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
 }
-
 .navbar a:hover {
-    color: #f8b400; 
+    color: #f8b400;
 }
-
 .navbar.scrolled {
-    background: rgba(0, 0, 0, 0.71);
+    background: rgba(0, 0, 0, 0.8);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
-
-
+/* Hero Section */
 header.hero {
     background: url('game-background.jpg') no-repeat center center/cover;
     min-height: 60vh;
@@ -195,9 +170,11 @@ header.hero {
     max-width: 450px; 
 }
 
-
+/* Hero Buttons */
 .hero-buttons {
     margin-top: 1rem;
+    margin-bottom: 4rem;
+
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -207,7 +184,6 @@ header.hero {
     border-radius: 5px;
     transition: background 0.3s ease;
 }
-
 .hero-buttons a {
     text-decoration: none;
     background: #3b3b3b;
@@ -218,11 +194,9 @@ header.hero {
     overflow: hidden;
     transition: 0.3s ease;
 }
-
 .hero-buttons a:hover {
     background: linear-gradient(45deg, #997100, #f8b400);
 }
-
 .hero-buttons a:before {
     content: '';
     position: absolute;
@@ -237,11 +211,99 @@ header.hero {
     left: 100%;
 }
 
+/* Game Demo Section */
+.iframe-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+}
+.iframe-container iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+border-radius: 15px
+;    display: block;
+}
+
+/* Fullscreen Button */
+.fullscreen-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    padding: 10px;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1;
+    transition: background 0.3s ease, transform 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+.fullscreen-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
+}
+.fullscreen-btn:focus {
+    outline: none;
+}
+:fullscreen .fullscreen-btn,
+:-webkit-full-screen .fullscreen-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+:fullscreen .fullscreen-btn:hover,
+:-webkit-full-screen .fullscreen-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Blur Overlay */
+#blurOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #eae9ee7a;
+    backdrop-filter: blur(8px); /* Blur effect */
+    z-index: 3;
+}
+
+/* Start Game Button */
+#startGameBtn {
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f8b400;
+    color: #121212;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 3;
+    transition: background 0.3s ease;
+}
+#startGameBtn:hover {
+    background-color: #e09b00;
+}
+
+/* Sections */
 section {
     padding: 4rem;
     text-align: center;
     background-color: rgba(28, 28, 28, 0.9);
     margin-bottom: 2rem;
+    margin: 10vh;
+    border-radius: 15px;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 1s ease-out, transform 1s ease-out;
@@ -255,110 +317,8 @@ section h2 {
     margin-bottom: 1.5rem;
     color: #f8b400;
 }
-#blurOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #eae9ee7a;
-    backdrop-filter: blur(8px);
-    z-index: 2;
-}
-#startGameBtn {
-    position: absolute;
-    top: 40%;
-    left: 41.5%;
-    z-index: 2;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
 
-}
-
-#startGameBtn:hover {
-    background-color: #0056b3;
-    background: rgba(0, 0, 0, 0.7);
-    transform: scale(1.1);
-}
-
-#gameContainer {
-    position: relative;
-}
-
-#gameFrame {
-    z-index: 0;
-}
-
-.game-demo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.iframe-container {
-    position: relative;
-    display: inline-block; 
-    width: 100%;
-    max-width: 880px; 
-    margin: 0 auto; 
-}
-
-.iframe-container iframe {
-    width: 100%;
-    height: 500px; 
-    border: none;
-    display: block;
-}
-
-
-.fullscreen-btn {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.5); 
-    border: none;
-    padding: 10px;
-    font-size: 25px;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    z-index: 1; 
-    transition: background 0.3s ease, transform 0.3s ease;
-    backdrop-filter: blur(8px);
-
-}
-
-.fullscreen-btn:hover {
-    background: rgba(0, 0, 0, 0.7);
-    transform: scale(1.1);
-}
-
-.fullscreen-btn:focus {
-    outline: none;
-}
-
-
-:fullscreen .fullscreen-btn,
-:-webkit-full-screen .fullscreen-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.5); 
-    z-index: 1000; 
-}
-
-:fullscreen .fullscreen-btn:hover,
-:-webkit-full-screen .fullscreen-btn:hover {
-    background: rgba(0, 0, 0, 0.7); 
-}
-
-
+/* Features */
 .feature-grid {
     display: flex;
     justify-content: space-around;
@@ -367,7 +327,6 @@ section h2 {
     gap: 1rem;
     flex-wrap: wrap;
 }
-
 .feature {
     background: #2a2a2a;
     padding: 1rem;
@@ -376,29 +335,27 @@ section h2 {
     color: #e0e0e0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
-
 .feature h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #f8b400;
 }
 
-
+/* Footer */
 footer {
     background: #000000;
     color: white;
     text-align: center;
     padding: 1rem;
 }
-
 footer p {
     margin: 0;
 }
 
-
+/* General Button */
 .btn {
-    margin-top: 20px; 
-    padding: 1rem 2rem; 
+    margin-top: 20px;
+    padding: 1rem 2rem;
     background-color: #3b3b3b;
     color: #e0e0e0;
     border-radius: 5px;
@@ -406,11 +363,9 @@ footer p {
     display: inline-block;
     transition: background 0.3s ease;
     backdrop-filter: blur(8px);
-
 }
 a.btn {
-    margin-top: 20px; 
-
+    margin-top: 20px;
     text-decoration: none;
     color: white;
     padding: 1rem 2rem;
@@ -418,29 +373,11 @@ a.btn {
     border-radius: 5px;
     transition: background 0.3s ease;
 }
-
 a.btn:hover {
     background-color: #505050;
 }
 
-
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-section {
-    margin: 10vh;
-    opacity: 0;
-    transform: translateY(50px);
-}
-
-section.enterprise { 
-    background-color: #e0e0e0;
-    margin: 400px;
-}
-
+/* Particle.js */
 #particles-js {
     position: absolute;
     width: 100%;
@@ -448,7 +385,6 @@ section.enterprise {
     top: 0;
     left: 0;
 }
-
 #particles-js canvas {
-    filter: drop-shadow(100px 200px 20px rgba(255, 255, 255, 0.8)); 
+    filter: drop-shadow(100px 200px 20px rgba(255, 255, 255, 0.8));
 }

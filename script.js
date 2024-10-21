@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const splashScreen = document.getElementById('splash-screen');
     const iframe = document.querySelector('.iframe-container iframe'); 
     const fullscreenBtn = document.getElementById('fullscreen-btn'); 
+    let gameLoaded = false; // Flag to check if the game is loaded
 
     // Splash screen fade-out
     setTimeout(() => {
@@ -82,10 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lazy load the game iframe and prevent automatic fullscreen
     const gameObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting &&!gameLoaded) {
                 iframe.src = 'Web/index.html'; // Load the game
                 iframe.onload = () => {
                     iframe.contentWindow.focus(); // Focus only, no fullscreen
+                    gameLoaded=true;
                 };
                 gameObserver.observe(iframe);
             }

@@ -33,10 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fullscreenBtn.addEventListener('click', toggleFullscreen);
 
     // Try the Game button event (no fullscreen trigger)
-    const tryGameBtn = document.querySelector('a[href="#try-game"]');
-    tryGameBtn.addEventListener('click', function (e) {
-        iframe.contentWindow.focus(); // Only focus the iframe, no fullscreen
-    });
+
 
     // Prevent automatic fullscreen on iframe load
 
@@ -68,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
                 sectionObserver.unobserve(entry.target);
+
             }
         });
     }, {

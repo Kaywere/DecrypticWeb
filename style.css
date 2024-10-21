@@ -113,12 +113,13 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.71);
     color: white;
     padding: 1rem;
     display: flex;
     justify-content: center;
     z-index: 1000;
+    backdrop-filter: blur(5px);
 }
 
 .navbar ul {
@@ -138,7 +139,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .navbar.scrolled {
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.71);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 

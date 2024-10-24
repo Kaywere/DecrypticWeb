@@ -124,7 +124,7 @@
                 let formData = new FormData(this);
         
                 // Send the form data via Fetch API to the InfinityFree PHP backend
-                fetch('http://shhowbmj.infinityfree.com/login.php', {
+                fetch('http://269511php.infinityfreeapp.com/login.php', {
                     method: 'POST',
                     body: formData,
                     headers: {
@@ -160,33 +160,33 @@
         </form>
         
         <script>
-            document.getElementById('registerForm').addEventListener('submit', function(e) {
-                e.preventDefault(); // Prevent the form from submitting traditionally
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the form from submitting traditionally
         
-                let formData = new FormData(this);
+            let formData = new FormData(this);
         
-                // Send the form data via Fetch API to the InfinityFree PHP backend
-                fetch('http://shhowbmj.infinityfree.com/register.php', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert('Registration successful!');
-                        // Redirect or notify the user
-                    } else {
-                        alert('Registration failed: ' + data.message);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+            fetch('http://269511php.infinityfreeapp.com/register.php', {
+                method: 'POST', // Ensure it's sending as POST
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Log the response to debug
+                if (data.success) {
+                    alert('Registration successful!');
+                } else {
+                    alert('Registration failed: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
             });
+        });
         </script>
+        
         <p class="message">Already have an account? <a id="back-to-login-link">Log in here</a>.</p>
     </div>
 
